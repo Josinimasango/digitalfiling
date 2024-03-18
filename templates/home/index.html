@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <h1><a href="{% url 'doctor_login' %}">Login</a></h1>
+  {% if request.user.is_authenticated %}
+    <h1><a href="{% url 'doctor_logout' %}">Logout</a></h1>
+  {% endif %}
+
+  <!-- Additional HTML content -->
+  <div class="additional-content">
+    <p>Welcome to our website!</p>
+    <p>Feel free to explore.</p>
+  </div>
+{% endblock %}
+
+<!-- Add CSS styles -->
+<style>
+  .additional-content {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+  }
+</style>

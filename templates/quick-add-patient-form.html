@@ -1,0 +1,26 @@
+{% extends 'layout.html'%}
+{%block content%}
+
+
+<div class="row">
+    <div class="col-3">
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+              The current link item
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">A second link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A third link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
+            <a class="list-group-item list-group-item-action disabled" aria-disabled="true">A disabled link item</a>
+          </div>
+    </div>
+</div>         
+
+{% if request.user.is_authenticated %}
+<h1><a href="{% url 'doctor_logout' %}">Logout</a></h> 
+<h1><a class="text-success" href="{% url 'doctor_reset_password' %}">Reset Password</a></h1>      
+<h1><a class="text-danger" href="{% url 'doctor_dashboard' %}">Dashboard</a></h1>
+{% else %}
+<h1><a href="{% url 'doctor_login' %}"></a></h1>   
+{% endif %}
+{% endblock %}
